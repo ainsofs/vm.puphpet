@@ -187,12 +187,14 @@ apache:
                             custom_fragment: ''
                             provider: filesmatch
                     provider: directory
-        av_jczngo6wkidg:
+        av_jobapp:
             servername: jobapp.dev
             serveraliases:
                 - www.jobapp.dev
             docroot: /var/www/jobapp/wwwroot
             port: '80'
+            setenv:
+                - 'APP_ENV dev'
             custom_fragment: ''
             ssl: '0'
             ssl_cert: ''
@@ -202,7 +204,7 @@ apache:
             ssl_protocol: ''
             ssl_cipher: ''
             directories:
-                avd_g4gi8bsq9hgax:
+                avd_jobapp:
                     path: /var/www/jobapp/wwwroot
                     options:
                         - Indexes
@@ -214,7 +216,77 @@ apache:
                         - 'all granted'
                     custom_fragment: ''
                     files_match:
-                        avdfm_gvoj3ckd2d7bx:
+                        avdfm_jobapp:
+                            path: \.php$
+                            sethandler: 'proxy:fcgi://127.0.0.1:9000'
+                            custom_fragment: ''
+                            provider: filesmatch
+                    provider: directory
+        av_drupal7:
+            servername: drupal7.dev
+            serveraliases:
+                - www.drupal7.dev
+            docroot: /var/www/drupal7
+            port: '80'
+            setenv:
+                - 'APP_ENV dev'
+            custom_fragment: ''
+            ssl: '0'
+            ssl_cert: ''
+            ssl_key: ''
+            ssl_chain: ''
+            ssl_certs_dir: ''
+            ssl_protocol: ''
+            ssl_cipher: ''
+            directories:
+                avd_drupal7:
+                    path: /var/www/drupal7
+                    options:
+                        - Indexes
+                        - FollowSymlinks
+                        - MultiViews
+                    allow_override:
+                        - All
+                    require:
+                        - 'all granted'
+                    custom_fragment: ''
+                    files_match:
+                        avdfm_drupal7:
+                            path: \.php$
+                            sethandler: 'proxy:fcgi://127.0.0.1:9000'
+                            custom_fragment: ''
+                            provider: filesmatch
+                    provider: directory
+        av_drupal8:
+            servername: drupal8.dev
+            serveraliases:
+                - www.drupal8.dev
+            docroot: /var/www/drupal8
+            port: '80'
+            setenv:
+                - 'APP_ENV dev'
+            custom_fragment: ''
+            ssl: '0'
+            ssl_cert: ''
+            ssl_key: ''
+            ssl_chain: ''
+            ssl_certs_dir: ''
+            ssl_protocol: ''
+            ssl_cipher: ''
+            directories:
+                avd_drupal8:
+                    path: /var/www/drupal8
+                    options:
+                        - Indexes
+                        - FollowSymlinks
+                        - MultiViews
+                    allow_override:
+                        - All
+                    require:
+                        - 'all granted'
+                    custom_fragment: ''
+                    files_match:
+                        avdfm_drupal8:
                             path: \.php$
                             sethandler: 'proxy:fcgi://127.0.0.1:9000'
                             custom_fragment: ''
